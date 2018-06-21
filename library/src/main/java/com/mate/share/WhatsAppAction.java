@@ -17,7 +17,7 @@ import static com.mate.utils.Constants.WHATSAPP_REQUEST_CODE;
 public class WhatsAppAction implements Action {
 
     @Override
-    public void share(Context context, String text) {
+    public void share(Context context, String... text) {
 
         Intent intent = null;
         boolean isWhatsAppInstalled = PackageUtils.isInstallPackage(context, WHATSAPP_PACKAGE_NAME);
@@ -25,13 +25,13 @@ public class WhatsAppAction implements Action {
         if (isWhatsAppInstalled) {
             intent = new Intent(android.content.Intent.ACTION_SEND);
             intent.setType(SHARE_MIME_DATA_TYPE);
-            intent.putExtra(Intent.EXTRA_TEXT, text);
+            intent.putExtra(Intent.EXTRA_TEXT, text[0]);
             intent.setPackage(WHATSAPP_PACKAGE_NAME);
         }
 
         if (!isWhatsAppInstalled || !PackageUtils.startAppForResult(context, intent,
                 WHATSAPP_REQUEST_CODE)) {
-            String browserUrl = WHATSAPP_BROWSER_SHARE_URL + text;
+            String browserUrl = WHATSAPP_BROWSER_SHARE_URL + text[0];
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(browserUrl));
             PackageUtils.startApp(context, intent);
         }

@@ -10,29 +10,31 @@ public class ShareAction {
 
     private Context mContext;
 
-    private String mText;
+    private String[] mText = new String[2];
 
     private Action mAction;
-
-//    private int mShareMedia;
 
     public ShareAction(Context context) {
         this.mContext = context;
     }
 
     public ShareAction withPlatform(int share_media) {
-//        this.mShareMedia = share_media;
         this.mAction = ActionFactory.getAction(share_media);
         return this;
     }
 
     public ShareAction withText(String text) {
-        this.mText = text;
+        this.mText[0] = text;
+        return this;
+    }
+
+    public ShareAction withTitle(String title) {
+        this.mText[1] = title;
         return this;
     }
 
     public void share() {
-        if (mAction != null && mContext != null && !TextUtils.isEmpty(mText)) {
+        if (mAction != null && mContext != null && mText.length != 0) {
             mAction.share(mContext, mText);
         } else {
             throw new RuntimeException("params is NULL");
@@ -48,6 +50,8 @@ public class ShareAction {
         int TWITTER = 1002;
 
         int WHATSAPP = 1003;
+
+        int MORE = 2000;
     }
 
 }

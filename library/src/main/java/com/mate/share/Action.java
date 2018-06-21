@@ -7,5 +7,5 @@ import android.content.Context;
  */
 public interface Action {
 
-    public void share(Context context, String text);
+    public void share(Context context, String... text);
 }

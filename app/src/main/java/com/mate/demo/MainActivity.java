@@ -50,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
                                                 .withText("https://github.com/fushenghua/ShareMate.git")
                                                 .share();
                                         break;
+                                    case R.id.more:
+                                        new ShareAction(MainActivity.this)
+                                                .withPlatform(ShareAction.SHARE_MEDIA.MORE)
+                                                .withTitle("Share to")
+                                                .withText("https://github.com/fushenghua/ShareMate.git")
+                                                .share();
+                                        break;
                                 }
 
                             }

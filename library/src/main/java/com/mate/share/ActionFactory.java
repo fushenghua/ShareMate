@@ -19,6 +19,9 @@ public class ActionFactory {
 
             case ShareAction.SHARE_MEDIA.FACEBOOK_MESSAGER:
                 return new MessagerAction();
+
+            case ShareAction.SHARE_MEDIA.MORE:
+                return new MoreSystemAction();
         }
 
         return null;

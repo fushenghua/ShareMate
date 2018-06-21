@@ -16,4 +16,8 @@
         android:id="@+id/twitter"
         android:icon="@mipmap/ic_twitter"
         android:title="@string/twitter" />
+    <item
+        android:id="@+id/more"
+        android:icon="@mipmap/ic_more"
+        android:title="@string/more" />
 </menu>
