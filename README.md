@@ -2,14 +2,17 @@
 
 ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
 
+[中文阅读](README-zh.md)
+
 #### Example:
 
 ![](https://github.com/fushenghua/ShareMate/raw/master/images/screenshot.png)
 
 ### Feature
 
-    * Support platform(Twitter/Facebook/WhatsApp/Messager)
-    * No need to apply for app key
+* Support platform(Twitter/Facebook/WhatsApp/Messager)
+
+* No need to apply for app key
 
 ### Usage
 
