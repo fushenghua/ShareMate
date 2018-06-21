@@ -2,6 +2,8 @@
 
 ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 
+[中文阅读](README-zh.md)
+
 #### 示例:
 
 ![](https://github.com/fushenghua/ShareMate/raw/master/images/screenshot.png)
