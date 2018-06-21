@@ -11,7 +11,7 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
 
 **TWITTER**
 
-```
+``` java
  new ShareAction(MainActivity.this)
     .withPlatform(ShareAction.SHARE_MEDIA.TWITTER)
     .withText("https://github.com/fushenghua/ShareMate.git")
@@ -22,7 +22,7 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
 ### Import
 
 
-```
+``` gradle
 compile 'com.mate.share:ShareMate:1.0.0'
 ```
 
