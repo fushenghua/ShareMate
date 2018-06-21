@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/whatsapp"
+        android:icon="@mipmap/ic_whatsapp"
+        android:title="@string/whatsapp" />
+    <item
+        android:id="@+id/facebbook"
+        android:icon="@mipmap/ic_facebbook"
+        android:title="@string/facebbook" />
+    <item
+        android:id="@+id/messager"
+        android:icon="@mipmap/ic_messager"
+        android:title="@string/messager" />
+    <item
+        android:id="@+id/twitter"
+        android:icon="@mipmap/ic_twitter"
+        android:title="@string/twitter" />
+</menu>
