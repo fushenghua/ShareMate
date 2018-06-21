@@ -6,6 +6,11 @@ ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 
 ![](https://github.com/fushenghua/ShareMate/raw/master/images/screenshot.png)
 
+### 特征
+
+    * 支持平台 (Twitter/Facebook/WhatsApp/Messager)
+    * 不需要申请app key
+
 ### 使用方法
 
 
