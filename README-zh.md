@@ -9,7 +9,7 @@ ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 
 ### 特征
 
-* 支持平台 (Twitter/Facebook/WhatsApp/Messager)
+* 支持平台 (**Twitter/Facebook/WhatsApp/Messager/System Share、SMS**)
 
 * 不需要申请app key
 
@@ -30,5 +30,33 @@ ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 
 
 ```
-compile 'com.mate.share:ShareMate:1.0.0'
+compile 'com.mate.share:sharemate:1.0.1'
+```
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+```
+MIT License
+
+Copyright (c) 2017 fushenghua
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 ```

@@ -10,7 +10,7 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
 
 ### Feature
 
-* Support platform(Twitter/Facebook/WhatsApp/Messager)
+* Support platform(**Twitter/Facebook/WhatsApp/Messager/System Share、SMS**)
 
 * No need to apply for app key
 
@@ -26,12 +26,21 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
     .share();
 ```
 
+**System**
+
+``` java
+ new ShareAction(MainActivity.this)
+ .withPlatform(ShareAction.SHARE_MEDIA.MORE)
+ .withTitle("Share to")
+ .withText("https://github.com/fushenghua/ShareMate.git")
+ .share();
+```
 
 ### Import
 
 
 ``` gradle
-compile 'com.mate.share:ShareMate:1.0.1'
+compile 'com.mate.share:sharemate:1.0.1'
 ```
 
 ## License
