@@ -38,9 +38,11 @@ import java.util.List;
 public class ShareDialog {
 
     public static final int HORIZONTAL = OrientationHelper.HORIZONTAL;
+
     public static final int VERTICAL = OrientationHelper.VERTICAL;
 
     public static final int LINEAR = 0;
+
     public static final int GRID = 1;
 
     private CustomDialog customDialog;
@@ -97,19 +99,27 @@ public class ShareDialog {
     }
 
     private final class CustomDialog extends Dialog {
+
         private LinearLayout background;
+
         private LinearLayout container;
+
         private TextView titleView;
 
         private DialogAdapter adapter;
 
         private int padding;
+
         private int topPadding;
+
         private int leftPadding;
+
         private int topIcon;
+
         private int leftIcon;
 
         private int orientation;
+
         private int layout;
 
         CustomDialog(Context context) {
@@ -208,9 +218,11 @@ public class ShareDialog {
         private class DialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             private List<MenuItem> mMenuItems = Collections.emptyList();
+
             private OnItemClickListener itemClickListener;
 
             private int orientation;
+
             private int layout;
 
             DialogAdapter(List<MenuItem> mMenuItems, int layout, int orientation) {
@@ -336,6 +348,7 @@ public class ShareDialog {
             }
 
             class LeftHolder extends RecyclerView.ViewHolder {
+
                 private TextView item;
 
                 LeftHolder(View view) {
