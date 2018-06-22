@@ -30,7 +30,7 @@ ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 
 
 ```
-compile 'com.mate.share:sharemate:1.0.1'
+compile 'com.mate.share:sharemate:1.0.2'
 ```
 
 ## License
