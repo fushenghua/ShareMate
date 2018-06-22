@@ -1,4 +1,4 @@
-package com.mate.demo;
+package com.mate.utils;
 
 import android.content.Context;
 

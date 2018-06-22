@@ -25,7 +25,7 @@
             android:layout_marginRight="@dimen/app_plus_margin"
             android:textColor="@color/gray_font_dark"
             android:visibility="gone"
-            tools:text="分享到" />
+            tools:text="@android:string/share" />
 
         <LinearLayout
             android:id="@+id/container"

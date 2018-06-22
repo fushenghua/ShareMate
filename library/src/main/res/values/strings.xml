@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Library</string>
+    <string name="app_name">ShareMate</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="facebbook">Facebbook</string>
+    <string name="messager">Messager</string>
+    <string name="twitter">Twitter</string>
+    <string name="more">More</string>
 </resources>

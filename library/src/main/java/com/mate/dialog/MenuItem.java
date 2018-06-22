@@ -1,11 +1,11 @@
-package com.mate.demo;
+package com.mate.dialog;
 
 import android.graphics.drawable.Drawable;
 
 /**
  * create by fushenghua
  */
-public class Item {
+public class MenuItem {
 
     private int id;
 
@@ -13,10 +13,10 @@ public class Item {
 
     private Drawable icon;
 
-    public Item() {
+    public MenuItem() {
     }
 
-    public Item(int id, String title, Drawable icon) {
+    public MenuItem(int id, String title, Drawable icon) {
         this.id = id;
         this.title = title;
         this.icon = icon;

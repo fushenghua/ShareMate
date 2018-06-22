@@ -1,5 +1,6 @@
-package com.mate.demo;
+package com.mate.dialog;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -9,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.view.SupportMenuInflater;
 import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.view.menu.SubMenuBuilder;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -17,12 +19,14 @@ import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.mate.share.R;
+import com.mate.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,7 +35,7 @@ import java.util.List;
 /**
  * create by fushenghua
  */
-public class BottomDialog {
+public class ShareDialog {
 
     public static final int HORIZONTAL = OrientationHelper.HORIZONTAL;
     public static final int VERTICAL = OrientationHelper.VERTICAL;
@@ -41,49 +45,49 @@ public class BottomDialog {
 
     private CustomDialog customDialog;
 
-    public BottomDialog(Context context) {
+    public ShareDialog(Context context) {
         customDialog = new CustomDialog(context);
     }
 
-    public BottomDialog title(String title) {
+    public ShareDialog title(String title) {
         customDialog.title(title);
         return this;
     }
 
-    public BottomDialog title(int title) {
+    public ShareDialog title(int title) {
         customDialog.title(title);
         return this;
     }
 
-    public BottomDialog background(int res) {
+    public ShareDialog background(int res) {
         customDialog.background(res);
         return this;
     }
 
-    public BottomDialog inflateMenu(int menu, OnItemClickListener onItemClickListener) {
+    public ShareDialog inflateMenu(int menu, OnItemClickListener onItemClickListener) {
         customDialog.inflateMenu(menu, onItemClickListener);
         return this;
     }
 
-    public BottomDialog layout(int layout) {
+    public ShareDialog layout(int layout) {
         customDialog.layout(layout);
         return this;
     }
 
-    public BottomDialog orientation(int orientation) {
+    public ShareDialog orientation(int orientation) {
         customDialog.orientation(orientation);
         return this;
     }
 
-    public BottomDialog addItems(List<Item> items, OnItemClickListener onItemClickListener) {
-        customDialog.addItems(items, onItemClickListener);
+    public ShareDialog addItems(List<MenuItem> menuItems, OnItemClickListener onItemClickListener) {
+        customDialog.addItems(menuItems, onItemClickListener);
         return this;
     }
 
     /**
      * @deprecated
      */
-    public BottomDialog itemClick(OnItemClickListener listener) {
+    public ShareDialog itemClick(OnItemClickListener listener) {
         customDialog.setItemClick(listener);
         return this;
     }
@@ -109,7 +113,7 @@ public class BottomDialog {
         private int layout;
 
         CustomDialog(Context context) {
-            super(context, R.style.BottomDialog);
+            super(context, R.style.ShareDialog);
 
             init();
         }
@@ -121,7 +125,7 @@ public class BottomDialog {
             topIcon = getContext().getResources().getDimensionPixelSize(R.dimen.bottom_dialog_top_icon);
             leftIcon = getContext().getResources().getDimensionPixelSize(R.dimen.bottom_dialog_left_icon);
 
-            setContentView(R.layout.bottom_dialog);
+            setContentView(R.layout.share_dialog);
             setCancelable(true);
             setCanceledOnTouchOutside(true);
             getWindow().setGravity(Gravity.BOTTOM);
@@ -138,11 +142,11 @@ public class BottomDialog {
             });
         }
 
-        void addItems(List<Item> items, OnItemClickListener onItemClickListener) {
+        void addItems(List<MenuItem> menuItems, OnItemClickListener onItemClickListener) {
             ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             RecyclerView.LayoutManager manager;
 
-            adapter = new DialogAdapter(items, layout, orientation);
+            adapter = new DialogAdapter(menuItems, layout, orientation);
             adapter.setItemClick(onItemClickListener);
 
             if (layout == LINEAR)
@@ -183,15 +187,15 @@ public class BottomDialog {
         }
 
         void inflateMenu(int menu, OnItemClickListener onItemClickListener) {
-            MenuInflater menuInflater = new SupportMenuInflater(getContext());
-            MenuBuilder menuBuilder = new MenuBuilder(getContext());
+            MenuInflater menuInflater = new MenuInflater(getContext());
+            @SuppressLint("RestrictedApi") MenuBuilder menuBuilder = new MenuBuilder(getContext());
             menuInflater.inflate(menu, menuBuilder);
-            List<Item> items = new ArrayList<>();
+            List<MenuItem> menuItems = new ArrayList<>();
             for (int i = 0; i < menuBuilder.size(); i++) {
-                MenuItem menuItem = menuBuilder.getItem(i);
-                items.add(new Item(menuItem.getItemId(), menuItem.getTitle().toString(), menuItem.getIcon()));
+                android.view.MenuItem menuMenuItem = menuBuilder.getItem(i);
+                menuItems.add(new MenuItem(menuMenuItem.getItemId(), menuMenuItem.getTitle().toString(), menuMenuItem.getIcon()));
             }
-            addItems(items, onItemClickListener);
+            addItems(menuItems, onItemClickListener);
         }
 
         void setItemClick(OnItemClickListener onItemClickListener) {
@@ -203,20 +207,20 @@ public class BottomDialog {
          */
         private class DialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-            private List<Item> mItems = Collections.emptyList();
+            private List<MenuItem> mMenuItems = Collections.emptyList();
             private OnItemClickListener itemClickListener;
 
             private int orientation;
             private int layout;
 
-            DialogAdapter(List<Item> mItems, int layout, int orientation) {
-                setList(mItems);
+            DialogAdapter(List<MenuItem> mMenuItems, int layout, int orientation) {
+                setList(mMenuItems);
                 this.layout = layout;
                 this.orientation = orientation;
             }
 
-            private void setList(List<Item> items) {
-                mItems = items == null ? new ArrayList<Item>() : items;
+            private void setList(List<MenuItem> menuItems) {
+                mMenuItems = menuItems == null ? new ArrayList<MenuItem>() : menuItems;
             }
 
             void setItemClick(OnItemClickListener onItemClickListener) {
@@ -244,7 +248,7 @@ public class BottomDialog {
 
             @Override
             public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-                final Item item = mItems.get(position);
+                final MenuItem menuItem = mMenuItems.get(position);
 
                 TopHolder topHolder;
                 LeftHolder leftHolder;
@@ -252,34 +256,34 @@ public class BottomDialog {
                 if (layout == GRID) {
                     topHolder = (TopHolder) holder;
 
-                    topHolder.item.setText(item.getTitle());
-                    topHolder.item.setCompoundDrawablesWithIntrinsicBounds(null, topHolder.icon(item.getIcon()), null, null);
+                    topHolder.item.setText(menuItem.getTitle());
+                    topHolder.item.setCompoundDrawablesWithIntrinsicBounds(null, topHolder.icon(menuItem.getIcon()), null, null);
                     topHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(item);
+                            if (itemClickListener != null) itemClickListener.click(menuItem);
                         }
                     });
                 } else if (orientation == HORIZONTAL) {
                     topHolder = (TopHolder) holder;
 
-                    topHolder.item.setText(item.getTitle());
-                    topHolder.item.setCompoundDrawablesWithIntrinsicBounds(null, topHolder.icon(item.getIcon()), null, null);
+                    topHolder.item.setText(menuItem.getTitle());
+                    topHolder.item.setCompoundDrawablesWithIntrinsicBounds(null, topHolder.icon(menuItem.getIcon()), null, null);
                     topHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(item);
+                            if (itemClickListener != null) itemClickListener.click(menuItem);
                         }
                     });
                 } else {
                     leftHolder = (LeftHolder) holder;
 
-                    leftHolder.item.setText(item.getTitle());
-                    leftHolder.item.setCompoundDrawablesWithIntrinsicBounds(leftHolder.icon(item.getIcon()), null, null, null);
+                    leftHolder.item.setText(menuItem.getTitle());
+                    leftHolder.item.setCompoundDrawablesWithIntrinsicBounds(leftHolder.icon(menuItem.getIcon()), null, null, null);
                     leftHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(item);
+                            if (itemClickListener != null) itemClickListener.click(menuItem);
                         }
                     });
                 }
@@ -287,7 +291,7 @@ public class BottomDialog {
 
             @Override
             public int getItemCount() {
-                return mItems.size();
+                return mMenuItems.size();
             }
 
             /**

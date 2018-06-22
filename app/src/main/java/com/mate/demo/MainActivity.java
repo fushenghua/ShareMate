@@ -1,9 +1,12 @@
 package com.mate.demo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.mate.dialog.MenuItem;
+import com.mate.dialog.OnItemClickListener;
+import com.mate.dialog.ShareDialog;
 import com.mate.share.ShareAction;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                new BottomDialog(MainActivity.this)
+                new ShareDialog(MainActivity.this)
                         .title(R.string.app_name)
-                        .orientation(BottomDialog.HORIZONTAL)
+                        .orientation(ShareDialog.HORIZONTAL)
                         .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
                             @Override
-                            public void click(Item item) {
+                            public void click(MenuItem menuItem) {
 
-                                switch (item.getId()) {
+                                switch (menuItem.getId()) {
                                     case R.id.facebbook:
                                         new ShareAction(MainActivity.this)
                                                 .withPlatform(ShareAction.SHARE_MEDIA.FACEBOOK)

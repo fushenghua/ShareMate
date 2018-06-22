@@ -1,9 +1,9 @@
-package com.mate.demo;
+package com.mate.dialog;
 
 /**
  * create by fushenghua
  */
 
 public interface OnItemClickListener {
-    void click(Item item);
+    void click(MenuItem menuItem);
 }
