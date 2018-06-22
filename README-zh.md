@@ -26,11 +26,22 @@ ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
 ```
 
 
+**System**
+
+``` java
+ new ShareAction(MainActivity.this)
+ .withPlatform(ShareAction.SHARE_MEDIA.MORE)
+ .withTitle("Share to")
+ .withText("https://github.com/fushenghua/ShareMate.git")
+ .share();
+```
+
+
 ### 配置
 
 
 ```
-compile 'com.mate.share:sharemate:1.0.2'
+compile 'com.mate.share:sharemate:1.0.3'
 ```
 
 ## License

@@ -40,7 +40,7 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
 
 
 ``` gradle
-compile 'com.mate.share:sharemate:1.0.2
+compile 'com.mate.share:sharemate:1.0.3
 ```
 
 ## License
