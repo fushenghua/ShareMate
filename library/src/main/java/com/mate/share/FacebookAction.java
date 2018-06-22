@@ -6,7 +6,7 @@ import android.net.Uri;
 
 import com.mate.utils.PackageUtils;
 
-import static com.mate.utils.Constants.FACEBOOK_BROWSER_SHARE_URL;
+import static com.mate.utils.Constants.BROWSER_SHARE_URL_FACEBOOK;
 import static com.mate.utils.Constants.FACEBOOK_REQUEST_CODE;
 import static com.mate.utils.Constants.PACKAGE_NAME_FACEBOOK;
 import static com.mate.utils.Constants.SHARE_MIME_DATA_TYPE;
@@ -31,7 +31,7 @@ public class FacebookAction implements Action {
 
         if (!isFacebookInstalled || !PackageUtils.startAppForResult(context, intent,
                 FACEBOOK_REQUEST_CODE)) {
-            String browserUrl = FACEBOOK_BROWSER_SHARE_URL + text[0];
+            String browserUrl = BROWSER_SHARE_URL_FACEBOOK + text[0];
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse(browserUrl));
             PackageUtils.startApp(context, intent);
         }

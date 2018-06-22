@@ -20,14 +20,14 @@ public class Constants {
 
     public static final String PACKAGE_NAME_MESSAGER = "com.facebook.orca";
 
-    public static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
+    public static final String PACKAGE_NAME_WHATSAPP = "com.whatsapp";
 
 
-    public static final String FACEBOOK_BROWSER_SHARE_URL = "https://www.facebook.com/sharer/sharer.php?u=";
+    public static final String BROWSER_SHARE_URL_FACEBOOK = "https://www.facebook.com/sharer/sharer.php?u=";
 
-    public static final String TWITTER_BROWSER_SHARE_URL = "https://twitter.com/intent/tweet?text=";
+    public static final String BROWSER_SHARE_URL_TWITTER = "https://twitter.com/intent/tweet?text=";
 
-    public static final String WHATSAPP_BROWSER_SHARE_URL = "https://api.whatsapp.com/send?text=";
+    public static final String BROWSER_SHARE_URL_WHATSAPP = "https://api.whatsapp.com/send?text=";
 
     public static final String SHARE_MIME_DATA_TYPE = "text/plain";
 }
