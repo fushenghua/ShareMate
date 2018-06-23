@@ -197,8 +197,8 @@ public class ShareDialog {
         }
 
         void inflateMenu(int menu, OnItemClickListener onItemClickListener) {
-            MenuInflater menuInflater = new MenuInflater(getContext());
-            @SuppressLint("RestrictedApi") MenuBuilder menuBuilder = new MenuBuilder(getContext());
+            MenuInflater menuInflater = new SupportMenuInflater(getContext());
+            MenuBuilder menuBuilder = new MenuBuilder(getContext());
             menuInflater.inflate(menu, menuBuilder);
             List<MenuItem> menuItems = new ArrayList<>();
             for (int i = 0; i < menuBuilder.size(); i++) {

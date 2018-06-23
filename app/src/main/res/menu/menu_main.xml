@@ -1,22 +1,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <menuItem
+    <item
         android:id="@+id/whatsapp"
         android:icon="@mipmap/ic_whatsapp"
         android:title="@string/whatsapp" />
-    <menuItem
+    <item
         android:id="@+id/facebbook"
         android:icon="@mipmap/ic_facebbook"
         android:title="@string/facebbook" />
-    <menuItem
+    <item
         android:id="@+id/messager"
         android:icon="@mipmap/ic_messager"
         android:title="@string/messager" />
-    <menuItem
+    <item
         android:id="@+id/twitter"
         android:icon="@mipmap/ic_twitter"
         android:title="@string/twitter" />
 
-    <menuItem
+    <item
         android:id="@+id/more"
         android:icon="@mipmap/ic_more"
         android:title="@string/more" />
