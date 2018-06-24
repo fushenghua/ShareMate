@@ -86,13 +86,13 @@ public class ShareDialog {
         return this;
     }
 
-    /**
-     * @deprecated
-     */
-    public ShareDialog itemClick(OnItemClickListener listener) {
-        customDialog.setItemClick(listener);
-        return this;
-    }
+//    /**
+//     * @deprecated
+//     */
+//    public ShareDialog itemClick(OnItemClickListener listener) {
+//        customDialog.setItemClick(listener);
+//        return this;
+//    }
 
     public void show() {
         customDialog.show();

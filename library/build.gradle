@@ -43,6 +43,6 @@ publish {
     userOrg = 'fushenghua'
     groupId = 'com.mate.share'
     artifactId = 'sharemate'
-    publishVersion = '1.0.2'
+    publishVersion = '1.0.3'
     desc = 'A powerful ShareMate library for Android'
 }
