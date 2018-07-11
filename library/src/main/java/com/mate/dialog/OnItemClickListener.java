@@ -5,5 +5,5 @@ package com.mate.dialog;
  */
 
 public interface OnItemClickListener {
-    void click(MenuItem menuItem);
+    void onClick(MenuItem menuItem);
 }

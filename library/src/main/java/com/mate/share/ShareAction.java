@@ -51,6 +51,8 @@ public class ShareAction {
 
         int WHATSAPP = 1003;
 
+        int COPY_LINK = 1004;
+
         int MORE = 2000;
     }
 

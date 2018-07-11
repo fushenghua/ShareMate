@@ -22,6 +22,8 @@ public class ActionFactory {
 
             case ShareAction.SHARE_MEDIA.MORE:
                 return new MoreSystemAction();
+            case ShareAction.SHARE_MEDIA.COPY_LINK:
+                return new CopyLinkAction();
         }
 
         return null;

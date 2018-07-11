@@ -1,6 +1,5 @@
 package com.mate.dialog;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -10,7 +9,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.view.SupportMenuInflater;
 import android.support.v7.view.menu.MenuBuilder;
-import android.support.v7.view.menu.SubMenuBuilder;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
@@ -45,60 +43,57 @@ public class ShareDialog {
 
     public static final int GRID = 1;
 
-    private CustomDialog customDialog;
+    private InnerDialog mInnerDialog;
 
     public ShareDialog(Context context) {
-        customDialog = new CustomDialog(context);
+        mInnerDialog = new InnerDialog(context);
     }
 
     public ShareDialog title(String title) {
-        customDialog.title(title);
+        mInnerDialog.title(title);
         return this;
     }
 
     public ShareDialog title(int title) {
-        customDialog.title(title);
+        mInnerDialog.title(title);
         return this;
     }
 
     public ShareDialog background(int res) {
-        customDialog.background(res);
+        mInnerDialog.background(res);
         return this;
     }
 
     public ShareDialog inflateMenu(int menu, OnItemClickListener onItemClickListener) {
-        customDialog.inflateMenu(menu, onItemClickListener);
+        mInnerDialog.inflateMenu(menu, onItemClickListener);
         return this;
     }
 
     public ShareDialog layout(int layout) {
-        customDialog.layout(layout);
+        mInnerDialog.layout(layout);
         return this;
     }
 
     public ShareDialog orientation(int orientation) {
-        customDialog.orientation(orientation);
+        mInnerDialog.orientation(orientation);
         return this;
     }
 
     public ShareDialog addItems(List<MenuItem> menuItems, OnItemClickListener onItemClickListener) {
-        customDialog.addItems(menuItems, onItemClickListener);
+        mInnerDialog.addItems(menuItems, onItemClickListener);
         return this;
     }
 
-//    /**
-//     * @deprecated
-//     */
-//    public ShareDialog itemClick(OnItemClickListener listener) {
-//        customDialog.setItemClick(listener);
-//        return this;
-//    }
-
-    public void show() {
-        customDialog.show();
+    public ShareDialog show() {
+        mInnerDialog.show();
+        return this;
     }
 
-    private final class CustomDialog extends Dialog {
+    public void dismiss() {
+        mInnerDialog.dismiss();
+    }
+
+    private final class InnerDialog extends Dialog {
 
         private LinearLayout background;
 
@@ -122,7 +117,7 @@ public class ShareDialog {
 
         private int layout;
 
-        CustomDialog(Context context) {
+        InnerDialog(Context context) {
             super(context, R.style.ShareDialog);
 
             init();
@@ -273,7 +268,7 @@ public class ShareDialog {
                     topHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(menuItem);
+                            if (itemClickListener != null) itemClickListener.onClick(menuItem);
                         }
                     });
                 } else if (orientation == HORIZONTAL) {
@@ -284,7 +279,7 @@ public class ShareDialog {
                     topHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(menuItem);
+                            if (itemClickListener != null) itemClickListener.onClick(menuItem);
                         }
                     });
                 } else {
@@ -295,7 +290,7 @@ public class ShareDialog {
                     leftHolder.item.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (itemClickListener != null) itemClickListener.click(menuItem);
+                            if (itemClickListener != null) itemClickListener.onClick(menuItem);
                         }
                     });
                 }

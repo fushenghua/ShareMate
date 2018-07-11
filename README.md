@@ -44,7 +44,7 @@ new ShareDialog(MainActivity.this)
                     .orientation(ShareDialog.HORIZONTAL)
                     .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
                         @Override
-                        public void click(MenuItem menuItem) {
+                        public void onClick(MenuItem menuItem) {
 
                             switch (menuItem.getId()) {
                                 case R.id.facebbook:
