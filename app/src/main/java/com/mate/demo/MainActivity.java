@@ -34,25 +34,6 @@ public class MainActivity extends AppCompatActivity {
                                                 .withText("https://github.com/fushenghua/ShareMate.git")
                                                 .share();
                                         break;
-
-                                    case R.id.twitter:
-                                        new ShareAction(MainActivity.this)
-                                                .withPlatform(ShareAction.SHARE_MEDIA.TWITTER)
-                                                .withText("https://github.com/fushenghua/ShareMate.git")
-                                                .share();
-                                        break;
-                                    case R.id.whatsapp:
-                                        new ShareAction(MainActivity.this)
-                                                .withPlatform(ShareAction.SHARE_MEDIA.WHATSAPP)
-                                                .withText("https://github.com/fushenghua/ShareMate.git")
-                                                .share();
-                                        break;
-                                    case R.id.messager:
-                                        new ShareAction(MainActivity.this)
-                                                .withPlatform(ShareAction.SHARE_MEDIA.FACEBOOK_MESSAGER)
-                                                .withText("https://github.com/fushenghua/ShareMate.git")
-                                                .share();
-                                        break;
                                     case R.id.more:
                                         new ShareAction(MainActivity.this)
                                                 .withPlatform(ShareAction.SHARE_MEDIA.MORE)

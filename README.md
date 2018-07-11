@@ -36,6 +36,35 @@ ShareMate  Don't Dependencies on other SDKs to share the SDK. It's very simple
  .share();
 ```
 
+**Dialog Panel**
+
+``` java
+new ShareDialog(MainActivity.this)
+                    .title(R.string.app_name)
+                    .orientation(ShareDialog.HORIZONTAL)
+                    .inflateMenu(R.menu.menu_share, new OnItemClickListener() {
+                        @Override
+                        public void click(MenuItem menuItem) {
+
+                            switch (menuItem.getId()) {
+                                case R.id.facebbook:
+                                    new ShareAction(MainActivity.this)
+                                            .withPlatform(ShareAction.SHARE_MEDIA.FACEBOOK)
+                                            .withText("https://github.com/fushenghua/ShareMate.git")
+                                            .share();
+                                    break;
+                                case R.id.more:
+                                    new ShareAction(MainActivity.this)
+                                            .withPlatform(ShareAction.SHARE_MEDIA.MORE)
+                                            .withTitle("Share to")
+                                            .withText("https://github.com/fushenghua/ShareMate.git")
+                                            .share();
+                                    break;
+                            }
+                        }
+                    }).show();
+```
+
 ### Import
 
 
