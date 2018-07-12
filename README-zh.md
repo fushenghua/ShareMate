@@ -1,6 +1,6 @@
 # ShareMate
 
-ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单
+ShareMate  分享伴侣,一个不要依赖其他SDK的分享SDK.非常简单!
 
 
 #### 示例:
